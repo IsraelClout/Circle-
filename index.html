@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CIRCLE — A community-taught AI system. You teach. Circle learns. The world solves." />
+  <title>CIRCLE — You Teach. Circle Learns. The World Solves.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="brand"><span class="brand-mark"></span> CIRCLE</a>
+      <nav class="nav">
+        <a href="#how">How it works</a>
+        <a href="#lessons">Lessons</a>
+        <a href="#weekly">Weekly Reward</a>
+        <a href="#levels">Levels</a>
+        <a href="#solver">Solver</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn-ghost" data-action="signin">Sign in</button>
+        <button class="btn btn-primary" data-action="open-teach">Get started</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <h1>You Teach.<br><span class="gradient">Circle Learns.</span><br>The World Solves.</h1>
+        <p class="lead">A community-taught AI system. You teach math, science, culture, languages, music and life. Circle learns from you and solves real problems for everyone.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg" data-action="open-teach">Start Teaching →</button>
+          <a href="#how" class="btn btn-ghost btn-lg">Explore Circle</a>
+        </div>
+        <p class="hero-note">Free to teach • Verified by community • Rewarded every week</p>
+      </div>
+      <aside class="live-card">
+        <span class="pill">● Live learning session</span>
+        <h3>Lesson: Fractions → Simplifying</h3>
+        <p class="muted">Validated by 12 teachers</p>
+        <div class="progress"><i style="width:86%"></i></div>
+        <p class="small">Circle connected this to 12 other lessons</p>
+      </aside>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+      <div><strong id="statLessons">1.2M</strong><span>lessons taught</span></div>
+      <div><strong>48K</strong><span>teachers</span></div>
+      <div><strong>92</strong><span>countries</span></div>
+    </section>
+
+    <!-- HOW -->
+    <section id="how" class="section">
+      <h2>How it works</h2>
+      <p class="sub">Three steps. No complicated setup.</p>
+      <div class="grid-3">
+        <article class="card"><span class="tag">01 — TEACH</span><h3>Teach</h3><p>Upload a video, photo, voice note, story, email or chat. Teach what you know.</p><button class="btn btn-primary" data-action="open-teach">Teach Now</button></article>
+        <article class="card"><span class="tag">02 — LEARN</span><h3>Circle Learns</h3><p>Community verifies it. Circle adds it to its knowledge graph and connects it to other lessons.</p></article>
+        <article class="card"><span class="tag">03 — SOLVE</span><h3>World Solves</h3><p>Anyone can ask Circle a real problem. It answers using what real people taught it.</p></article>
+      </div>
+    </section>
+
+    <!-- LESSONS -->
+    <section id="lessons" class="section">
+      <h2>Featured Lessons</h2>
+      <p class="sub">Taught by real people. Verified by the community.</p>
+      <div class="grid-3" id="lessonGrid"></div>
+    </section>
+
+    <!-- WEEKLY REWARD - NEW -->
+    <section id="weekly" class="section">
+      <h2>Weekly Reward</h2>
+      <p class="sub">Teach during the week. Get rewarded every Sunday at 6:00 PM GMT.</p>
+      <div class="card weekly-card">
+        <div class="weekly-top">
+          <div>
+            <span class="tag">THIS WEEK</span>
+            <h3 id="weeklyTitle">Week of Nov 16 — Nov 22, 2026</h3>
+            <p class="muted">Your verified lessons this week: <strong id="weeklyCount">0</strong> • Coins earned: <strong id="weeklyCoins">0</strong></p>
+          </div>
+          <div class="countdown">
+            <span>Reward drops in</span>
+            <strong id="weeklyCountdown">—</strong>
+            <span>Sunday 6:00 PM GMT</span>
+          </div>
+        </div>
+
+        <div class="reward-tiers">
+          <div class="tier"><strong>5+ lessons</strong><span>50 Coins + Weekly Badge</span></div>
+          <div class="tier active"><strong>15+ lessons</strong><span>150 Coins + Certificate Credit</span></div>
+          <div class="tier"><strong>30+ lessons</strong><span>350 Coins + Featured Teacher</span></div>
+          <div class="tier gold"><strong>50+ lessons</strong><span>600 Coins + Weekly Star + Bonus Certificate</span></div>
+        </div>
+
+        <div class="weekly-actions">
+          <button class="btn btn-primary" data-action="open-teach">Teach to earn this week →</button>
+          <button class="btn btn-ghost" id="claimWeeklyBtn">Claim Weekly Reward</button>
+          <span id="weeklyStatus" class="weekly-status"></span>
+        </div>
+        <p class="small muted">Rule: Only verified lessons count. Fake or copied lessons are rejected and don't earn reward. Rewards reset every Monday.</p>
+      </div>
+    </section>
+
+    <!-- SOLVER -->
+    <section id="solver" class="section">
+      <h2>Real-World Problem Solver</h2>
+      <p class="sub">Ask Circle a real problem. It uses what the community taught it.</p>
+      <div class="card">
+        <input id="problemInput" placeholder="e.g. How do I stop flooding in my area in Accra?" />
+        <button class="btn btn-primary" id="solveBtn">Ask Circle →</button>
+        <div id="solverOutput" class="solver-output" hidden></div>
+      </div>
+    </section>
+
+    <!-- LEVELS -->
+    <section id="levels" class="section">
+      <h2>Levels & Rewards</h2>
+      <p class="sub">You teach. You earn proof.</p>
+      <div class="card table-wrap">
+        <table>
+          <thead><tr><th>Level</th><th>Title</th><th>Need</th><th>Reward</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td><strong>Newcomer</strong></td><td>10 verified lessons</td><td>Starter Badge</td></tr>
+            <tr><td>2</td><td><strong>Teacher</strong></td><td>100 lessons, 85% accuracy</td><td>Teacher Certificate</td></tr>
+            <tr><td>3</td><td><strong>Certified Contributor</strong></td><td>1,000 lessons, 94% accuracy</td><td>Verifiable Certificate</td></tr>
+            <tr><td>4</td><td><strong>Mentor</strong></td><td>2,500 lessons + mentor 10 people</td><td>Mentor Certificate</td></tr>
+            <tr><td>5</td><td><strong>Circle Master</strong></td><td>5,000 lessons, 97% accuracy</td><td>Master Certificate + Hall of Fame</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CERTIFICATE - UPDATED WITH GOKAH ISRAEL EWOENAM -->
+    <section class="section">
+      <div class="certificate">
+        <div class="cert-top"><span class="brand-mark"></span> CIRCLE</div>
+        <p class="cert-label">VERIFIABLE CREDENTIAL CERTIFICATE</p>
+        <h3>Certified Circle Contributor — Level 3</h3>
+        <p class="muted">This certificate is proudly awarded to</p>
+        <h2 class="cert-name" id="certName">Kwame Mensah</h2>
+        <p class="muted">for teaching 1,240 lessons in Math, Culture, Languages</p>
+        <p class="cert-desc">This certifies that the holder taught Circle and contributed to solving real-world problems.</p>
+
+        <div class="cert-meta">
+          <div><span>CREDENTIAL ID</span><strong>CRC-3107</strong></div>
+          <div><span>ISSUE DATE</span><strong>November 18, 2026</strong></div>
+          <div><span>VERIFY AT</span><strong>circle.ai/verify</strong></div>
+        </div>
+
+        <div class="cert-footer">
+          <div class="sig">
+            <span class="sig-line">Gokah Israel Ewoenam</span>
+            <small>Gokah Israel Ewoenam</small>
+            <small class="muted">CEO of Circle</small>
+          </div>
+          <div class="seal">CIRCLE<br>VERIFIED</div>
+          <div class="sig right">
+            <span class="sig-line">Weekly Reward • Verified</span>
+            <small>Weekly Reward System</small>
+            <small class="muted">Awarded for teaching Circle</small>
+          </div>
+        </div>
+        <button class="btn btn-primary" id="downloadCertBtn">Download Certificate</button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>© 2026 CIRCLE. All rights reserved.</span>
+      <span>Built by Gokah Israel Ewoenam — CEO of Circle</span>
+    </footer>
+  </main>
+
+  <!-- TEACH MODAL -->
+  <div class="modal" id="teachModal" aria-hidden="true">
+    <div class="modal-box">
+      <h2>Teach Circle</h2>
+      <p class="muted small">Upload anything — video, photo, story, voice note. Counts toward this week's reward.</p>
+      <div class="upload" id="uploadBox">Drop file or click to upload<br><small>Math, Science, Culture, Music, Language</small><input type="file" id="fileInput" hidden></div>
+      <input id="lessonTitle" placeholder="Lesson title: e.g. How to make Groundnut Stew" />
+      <select id="lessonCat"><option>Math</option><option>Science</option><option>Culture</option><option>Languages</option><option>Music</option><option>Stories / Lifestyle</option><option>Other</option></select>
+      <textarea id="lessonDesc" rows="3" placeholder="What should Circle learn from this?"></textarea>
+      <button class="btn btn-primary btn-full" id="submitLessonBtn">Submit for Verification →</button>
+      <button class="btn btn-ghost btn-full" data-action="close-teach">Close</button>
+      <div id="teachResult" class="teach-result" hidden></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
